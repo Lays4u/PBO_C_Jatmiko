@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>Main.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+
+<span class="s0">class </span><span class="s1">RekeningBank </span><span class="s2">{</span>
+    <span class="s0">private </span><span class="s1">String nomorRekening</span><span class="s2">;</span>
+    <span class="s0">private </span><span class="s1">String namaPemilik</span><span class="s2">;</span>
+    <span class="s0">private double </span><span class="s1">saldo</span><span class="s2">;</span>
+
+    <span class="s3">// Konstruktor</span>
+    <span class="s0">public </span><span class="s1">RekeningBank</span><span class="s2">(</span><span class="s1">String nomorRekening</span><span class="s2">, </span><span class="s1">String namaPemilik</span><span class="s2">, </span><span class="s0">double </span><span class="s1">saldo</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">nomorRekening </span><span class="s2">= </span><span class="s1">nomorRekening</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">namaPemilik </span><span class="s2">= </span><span class="s1">namaPemilik</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">saldo </span><span class="s2">= </span><span class="s1">saldo</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">// Metode untuk menampilkan informasi rekening</span>
+    <span class="s0">public void </span><span class="s1">tampilkanInfo</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Nomor Rekening: &quot; </span><span class="s2">+ </span><span class="s1">nomorRekening</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Nama Pemilik: &quot; </span><span class="s2">+ </span><span class="s1">namaPemilik</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Saldo: Rp&quot; </span><span class="s2">+ </span><span class="s1">saldo</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">// Metode untuk setor uang</span>
+    <span class="s0">public void </span><span class="s1">setorUang</span><span class="s2">(</span><span class="s0">double </span><span class="s1">jumlah</span><span class="s2">) {</span>
+        <span class="s1">saldo </span><span class="s2">+= </span><span class="s1">jumlah</span><span class="s2">;</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">namaPemilik </span><span class="s2">+ </span><span class="s4">&quot; menyetor Rp&quot; </span><span class="s2">+ </span><span class="s1">jumlah </span><span class="s2">+ </span><span class="s4">&quot;. Saldo sekarang: Rp&quot; </span><span class="s2">+ </span><span class="s1">saldo</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s3">// Metode untuk tarik uang</span>
+    <span class="s0">public void </span><span class="s1">tarikUang</span><span class="s2">(</span><span class="s0">double </span><span class="s1">jumlah</span><span class="s2">) {</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">jumlah </span><span class="s2">&gt; </span><span class="s1">saldo</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">namaPemilik </span><span class="s2">+ </span><span class="s4">&quot; menarik Rp&quot; </span><span class="s2">+ </span><span class="s1">jumlah </span><span class="s2">+ </span><span class="s4">&quot;. (Gagal, Saldo tidak mencukupi) Saldo saat ini: Rp&quot; </span><span class="s2">+ </span><span class="s1">saldo</span><span class="s2">);</span>
+        <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+            <span class="s1">saldo </span><span class="s2">-= </span><span class="s1">jumlah</span><span class="s2">;</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">namaPemilik </span><span class="s2">+ </span><span class="s4">&quot; menarik Rp&quot; </span><span class="s2">+ </span><span class="s1">jumlah </span><span class="s2">+ </span><span class="s4">&quot;. (Berhasil) Saldo sekarang: Rp&quot; </span><span class="s2">+ </span><span class="s1">saldo</span><span class="s2">);</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s0">public class </span><span class="s1">Main </span><span class="s2">{</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">Scanner scanner </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+
+
+        <span class="s1">RekeningBank rekening1 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">RekeningBank</span><span class="s2">(</span><span class="s4">&quot;202410370110087&quot;</span><span class="s2">, </span><span class="s4">&quot;Jatmiko Eka Pratama&quot;</span><span class="s2">, </span><span class="s5">7500000.0</span><span class="s2">);</span>
+        <span class="s1">RekeningBank rekening2 </span><span class="s2">= </span><span class="s0">new </span><span class="s1">RekeningBank</span><span class="s2">(</span><span class="s4">&quot;202410370110084&quot;</span><span class="s2">, </span><span class="s4">&quot;Rafi Aditya&quot;</span><span class="s2">, </span><span class="s5">2500000.0</span><span class="s2">);</span>
+
+        <span class="s0">while </span><span class="s2">(</span><span class="s0">true</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Pilih aksi:&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;1. Lihat Info Rekening&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;2. Setor Uang&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;3. Tarik Uang&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;4. Keluar&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Masukkan pilihan: &quot;</span><span class="s2">);</span>
+            <span class="s0">int </span><span class="s1">pilihan </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">pilihan </span><span class="s2">== </span><span class="s5">4</span><span class="s2">) {</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Terima kasih!&quot;</span><span class="s2">);</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s2">}</span>
+
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Pilih rekening (1 atau 2): &quot;</span><span class="s2">);</span>
+            <span class="s0">int </span><span class="s1">rek </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+            <span class="s1">RekeningBank rekening </span><span class="s2">= (</span><span class="s1">rek </span><span class="s2">== </span><span class="s5">1</span><span class="s2">) ? </span><span class="s1">rekening1 </span><span class="s2">: </span><span class="s1">rekening2</span><span class="s2">;</span>
+
+            <span class="s0">switch </span><span class="s2">(</span><span class="s1">pilihan</span><span class="s2">) {</span>
+                <span class="s0">case </span><span class="s5">1</span><span class="s2">:</span>
+                    <span class="s1">rekening</span><span class="s2">.</span><span class="s1">tampilkanInfo</span><span class="s2">();</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+                <span class="s0">case </span><span class="s5">2</span><span class="s2">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Masukkan jumlah setor: Rp&quot;</span><span class="s2">);</span>
+                    <span class="s0">double </span><span class="s1">setor </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextDouble</span><span class="s2">();</span>
+                    <span class="s1">rekening</span><span class="s2">.</span><span class="s1">setorUang</span><span class="s2">(</span><span class="s1">setor</span><span class="s2">);</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+                <span class="s0">case </span><span class="s5">3</span><span class="s2">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Masukkan jumlah tarik: Rp&quot;</span><span class="s2">);</span>
+                    <span class="s0">double </span><span class="s1">tarik </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextDouble</span><span class="s2">();</span>
+                    <span class="s1">rekening</span><span class="s2">.</span><span class="s1">tarikUang</span><span class="s2">(</span><span class="s1">tarik</span><span class="s2">);</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+                <span class="s0">default</span><span class="s2">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Pilihan tidak valid!&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s1">scanner</span><span class="s2">.</span><span class="s1">close</span><span class="s2">();</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
