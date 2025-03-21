@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>Main.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+
+<span class="s0">class </span><span class="s1">User </span><span class="s2">{</span>
+    <span class="s0">private final </span><span class="s1">String nama</span><span class="s2">;</span>
+    <span class="s0">private final </span><span class="s1">String nim</span><span class="s2">;</span>
+
+    <span class="s0">public </span><span class="s1">User</span><span class="s2">(</span><span class="s1">String nama</span><span class="s2">, </span><span class="s1">String nim</span><span class="s2">) {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">nama </span><span class="s2">= </span><span class="s1">nama</span><span class="s2">;</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">nim </span><span class="s2">= </span><span class="s1">nim</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public </span><span class="s1">String getNama</span><span class="s2">() {</span>
+        <span class="s0">return </span><span class="s1">nama</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public boolean </span><span class="s1">login</span><span class="s2">(</span><span class="s1">String inputNama</span><span class="s2">, </span><span class="s1">String inputNim</span><span class="s2">) {</span>
+        <span class="s0">return </span><span class="s1">nama</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s1">inputNama</span><span class="s2">) &amp;&amp; </span><span class="s1">nim</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s1">inputNim</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+<span class="s2">}</span>
+
+<span class="s0">class </span><span class="s1">Admin </span><span class="s0">extends </span><span class="s1">User </span><span class="s2">{</span>
+    <span class="s0">private final </span><span class="s1">String password</span><span class="s2">;</span>
+
+    <span class="s0">public </span><span class="s1">Admin</span><span class="s2">(</span><span class="s1">String nama</span><span class="s2">, </span><span class="s1">String nim</span><span class="s2">, </span><span class="s1">String password</span><span class="s2">) {</span>
+        <span class="s0">super</span><span class="s2">(</span><span class="s1">nama</span><span class="s2">, </span><span class="s1">nim</span><span class="s2">);</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">password </span><span class="s2">= </span><span class="s1">password</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public boolean </span><span class="s1">login</span><span class="s2">(</span><span class="s1">String inputNama</span><span class="s2">, </span><span class="s1">String inputPassword</span><span class="s2">) {</span>
+        <span class="s0">return </span><span class="s1">getNama</span><span class="s2">().</span><span class="s1">equals</span><span class="s2">(</span><span class="s1">inputNama</span><span class="s2">) &amp;&amp; </span><span class="s0">this</span><span class="s2">.</span><span class="s1">password</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s1">inputPassword</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">displayInfo</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Login Admin sukses! Selamat datang, &quot; </span><span class="s2">+ </span><span class="s1">getNama</span><span class="s2">());</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s0">class </span><span class="s1">Mahasiswa </span><span class="s0">extends </span><span class="s1">User </span><span class="s2">{</span>
+    <span class="s0">public </span><span class="s1">Mahasiswa</span><span class="s2">(</span><span class="s1">String nama</span><span class="s2">, </span><span class="s1">String nim</span><span class="s2">) {</span>
+        <span class="s0">super</span><span class="s2">(</span><span class="s1">nama</span><span class="s2">, </span><span class="s1">nim</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public boolean </span><span class="s1">login</span><span class="s2">(</span><span class="s1">String inputNama</span><span class="s2">, </span><span class="s1">String inputNim</span><span class="s2">) {</span>
+        <span class="s0">return super</span><span class="s2">.</span><span class="s1">login</span><span class="s2">(</span><span class="s1">inputNama</span><span class="s2">, </span><span class="s1">inputNim</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">displayInfo</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Login Mahasiswa sukses! Selamat datang, &quot; </span><span class="s2">+ </span><span class="s1">getNama</span><span class="s2">());</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+<span class="s0">class </span><span class="s1">LoginSystem </span><span class="s2">{</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">Scanner scanner </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;1. Admin  </span><span class="s0">\n</span><span class="s3">2. Mahasiswa&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Pilih jenis login :  &quot;</span><span class="s2">);</span>
+        <span class="s0">int </span><span class="s1">pilihan </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+        <span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">pilihan </span><span class="s2">== </span><span class="s4">1</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Masukkan username Admin :  &quot;</span><span class="s2">);</span>
+            <span class="s1">String nama </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Masukkan password Admin :  &quot;</span><span class="s2">);</span>
+            <span class="s1">String password </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+
+            <span class="s1">Admin admin </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Admin</span><span class="s2">(</span><span class="s3">&quot;admin&quot;</span><span class="s2">, </span><span class="s3">&quot;087&quot;</span><span class="s2">, </span><span class="s3">&quot;admin087&quot;</span><span class="s2">);</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">admin</span><span class="s2">.</span><span class="s1">login</span><span class="s2">(</span><span class="s1">nama</span><span class="s2">, </span><span class="s1">password</span><span class="s2">)) {</span>
+                <span class="s1">admin</span><span class="s2">.</span><span class="s1">displayInfo</span><span class="s2">();</span>
+            <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Login gagal! Username atau password salah.&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">pilihan </span><span class="s2">== </span><span class="s4">2</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Masukkan nama Mahasiswa :  &quot;</span><span class="s2">);</span>
+            <span class="s1">String nama </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s3">&quot;Masukkan NIM Mahasiswa :  &quot;</span><span class="s2">);</span>
+            <span class="s1">String nim </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+
+            <span class="s1">Mahasiswa mahasiswa </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Mahasiswa</span><span class="s2">(</span><span class="s3">&quot;okim&quot;</span><span class="s2">, </span><span class="s3">&quot;087&quot;</span><span class="s2">);</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">mahasiswa</span><span class="s2">.</span><span class="s1">login</span><span class="s2">(</span><span class="s1">nama</span><span class="s2">, </span><span class="s1">nim</span><span class="s2">)) {</span>
+                <span class="s1">mahasiswa</span><span class="s2">.</span><span class="s1">displayInfo</span><span class="s2">();</span>
+            <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Login gagal! Nama atau NIM salah.&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;Pilihan tidak valid!&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s1">scanner</span><span class="s2">.</span><span class="s1">close</span><span class="s2">();</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
