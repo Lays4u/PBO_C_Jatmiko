@@ -13,7 +13,7 @@ public class Main {
         System.out.println();
 
         Anggota anggota1 = new Anggota("Jatmiko Eka Pratama", "C087");
-        Anggota anggota2 = new Anggota("Damar Ghulamul Abror ", "C060");
+        Anggota anggota2 = new Anggota("Damar Ghulamul Abror  ", "C060");
 
         anggota1.displayInfo();
         anggota2.displayInfo();
